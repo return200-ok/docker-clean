@@ -1,1 +1,2 @@
-ss
+clear docker images with regex name
+docker rmi $(docker images --format '{{.Repository}}:{{.Tag}}' | grep 'name:tag')
