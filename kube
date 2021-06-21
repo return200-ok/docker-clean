@@ -1,0 +1,2 @@
+#delete evicted pod
+kubectl get pods -n pinggo-dev| grep Evicted | awk '{print $1}' |xargs kubectl delete pod 
