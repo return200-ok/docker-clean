@@ -14,3 +14,11 @@ done
 ## Delete the overlay: 
     - Delete container and recreate it
     - Run comnand: ``` docker system prune -a -f ```
+
+# find which overlay is belong to which images
+```
+for image in $(docker images --quiet --format '{{.Repository}}:{{.Tag}}'); do
+    merged_dir=$(docker inspect "$image" --format '{{.GraphDriver.Data.MergedDir}}' | grep -Po '^.+?(?=/merged)')
+    echo "$merged_dir = $image"
+done
+```
