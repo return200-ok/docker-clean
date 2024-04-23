@@ -3,6 +3,10 @@ bash docker-clean.sh
 ,,,,
 # 
 
+# find large volume
+```
+du -h --max-depth=1 /var/lib/docker/overlay2/ |sort -hr
+```
 
 # find which overlay is belong to which container
 ```
